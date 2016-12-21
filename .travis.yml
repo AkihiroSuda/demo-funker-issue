@@ -1,0 +1,9 @@
+dist: trusty
+sudo: required
+
+script:
+  - curl -fsSL https://test.docker.com/ | sh
+  - docker swarm init
+  - docker build -t akihirosuda/demo-funker-issue -q .
+  - ./test.sh 55s
+  - ./test.sh 65s 
